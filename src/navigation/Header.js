@@ -9,7 +9,7 @@ function Header(props) {
   const scrollY = props.scrollY
 
   return (
-      <AppBar>
+      <AppBar sx={{ opacity: 0.9 }}>
         <Toolbar>
           <Button href="/" color="inherit">
             <DarkModeIcon />

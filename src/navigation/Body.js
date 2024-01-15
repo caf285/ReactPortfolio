@@ -2,7 +2,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // mui
-import { Toolbar } from "@mui/material";
+import { Paper, Toolbar } from "@mui/material";
 
 // page components
 import HomePage from "../pages/Home.js";
@@ -12,12 +12,14 @@ function Body() {
   return (
     <div>
       <Toolbar />
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<HomePage />} />
-          <Route path="*" element={<NoPage />} />
-        </Routes>
-      </BrowserRouter>
+      <Paper elevation={10} sx={{ margin: 3, padding: 2 }}>
+        <BrowserRouter>
+          <Routes>
+            <Route index element={<HomePage />} />
+            <Route path="*" element={<NoPage />} />
+          </Routes>
+        </BrowserRouter>
+      </Paper>
     </div>
   )
 }

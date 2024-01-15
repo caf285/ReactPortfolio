@@ -2,15 +2,20 @@
 import { useState, useEffect, useRef } from "react";
 
 // mui
-import { Paper, ThemeProvider, createTheme } from "@mui/material/styles";
-import Theme from "./Theme.js";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { Box, Button, Paper } from "@mui/material";
 
 // navigation components
 import Header from './navigation/Header.js';
 import Body from './navigation/Body.js';
 import Footer from './navigation/Footer.js';
 
-// default dark theme
+// mui themes
+const lightTheme = createTheme({
+  palette: {
+    mode: "light",
+  },
+})
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
@@ -18,8 +23,11 @@ const darkTheme = createTheme({
 })
 
 function App() {
-  // default dark theme
+  // toggle theme
   const [theme, setTheme] = useState(darkTheme)
+  useEffect(() => {
+    document.documentElement.setAttribute("color-scheme", theme.palette.mode)
+  }, [theme])
 
   // extended header on `scrollY = 0`
   const [bodyScrollY, setBodyScrollY] = useState(0)
@@ -30,15 +38,19 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Theme
-        setTheme={setTheme}
-      />
-      <Header
-        scrollY={bodyScrollY}
-      />
-      <div onScroll={() => {setBodyScrollY(bodyRef.current.scrollTop)}} ref={bodyRef}>
-        <Body />
+      <div style={{ height: "100vh", overflowY: "auto", display: "flex", flexFlow: "column" }} onScroll={() => {console.log(bodyRef.current.scrollTop); setBodyScrollY(bodyRef.current.scrollTop)}} ref={bodyRef}>
+        <Header
+          scrollY={bodyScrollY}
+        />
+        <Paper elevation={0} square={true} sx={{ flexGrow: 1 }}>
+          <Body />
+        </Paper>
         <Footer />
+      </div>
+      <div style={{ position: "fixed", bottom: "10px", right: "10px" }}>
+        <Button onClick={() => {setTheme(theme.palette.mode === "dark" ? lightTheme : darkTheme)}}>
+          toggle
+        </Button>
       </div>
     </ThemeProvider>
   )
