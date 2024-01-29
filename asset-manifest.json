@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/caf285.github.io/ReactPortfolio/static/css/main.d62d03b3.css",
-    "main.js": "/caf285.github.io/ReactPortfolio/static/js/main.a14561c6.js",
-    "static/js/787.80d6d522.chunk.js": "/caf285.github.io/ReactPortfolio/static/js/787.80d6d522.chunk.js",
-    "index.html": "/caf285.github.io/ReactPortfolio/index.html",
-    "main.d62d03b3.css.map": "/caf285.github.io/ReactPortfolio/static/css/main.d62d03b3.css.map",
-    "main.a14561c6.js.map": "/caf285.github.io/ReactPortfolio/static/js/main.a14561c6.js.map",
-    "787.80d6d522.chunk.js.map": "/caf285.github.io/ReactPortfolio/static/js/787.80d6d522.chunk.js.map"
+    "main.css": "/ReactPortfolio/static/css/main.d62d03b3.css",
+    "main.js": "/ReactPortfolio/static/js/main.d271e000.js",
+    "static/js/787.80d6d522.chunk.js": "/ReactPortfolio/static/js/787.80d6d522.chunk.js",
+    "index.html": "/ReactPortfolio/index.html",
+    "main.d62d03b3.css.map": "/ReactPortfolio/static/css/main.d62d03b3.css.map",
+    "main.d271e000.js.map": "/ReactPortfolio/static/js/main.d271e000.js.map",
+    "787.80d6d522.chunk.js.map": "/ReactPortfolio/static/js/787.80d6d522.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d62d03b3.css",
-    "static/js/main.a14561c6.js"
+    "static/js/main.d271e000.js"
   ]
 }
