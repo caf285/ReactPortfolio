@@ -1,9 +1,9 @@
 // react
-import { useState, useCallback, useEffect, useRef } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 // mui
 import { ThemeProvider } from "@mui/material/styles";
-import { Box, CssBaseline, Paper, Toolbar } from "@mui/material";
+import { CssBaseline, Paper, Toolbar } from "@mui/material";
 
 // mui theme variables
 import { muiTheme } from "./Theme.js";
@@ -26,26 +26,23 @@ function App() {
     setThemeMode(themeMode === "dark" ? "light" : "dark")
   }, [themeMode])
 
-  // extended header on `scrollY = 0`
-  const [scrollY, setScrollY] = useState(0)
-  const scrollRef = useRef()
-
-  useEffect(() => {
-    setScrollY(window.scrollY)
-  }, [])
+  // set dynamic basename for links and routing
+  const basename = window.location.hostname === "caf285.github.io" ? "/ReactPortfolio" : "";
 
   return (
     <ThemeProvider theme={muiTheme[themeMode]}>
       <CssBaseline />
       <Header
-        scrollY={scrollY}
+        basename={basename}
         themeMode={themeMode}
         handleThemeChange={handleThemeChange}
       />
-      <div style={{ display: "flex", flexFlow: "column", alignItems: "center", minHeight: "100vh" }} onScroll={() => {console.log(scrollRef.current.scrollTop); setScrollY(scrollRef.current.scrollTop)}} ref={scrollRef}>
+      <div style={{ display: "flex", flexFlow: "column", alignItems: "center", minHeight: "100vh" }} >
         <Toolbar />
         <Paper elevation={10} square={false} sx={{ width: "90%", maxWidth: "1500px", flexGrow: 1, margin: 3, padding: 2 }}>
-          <Body />
+          <Body
+            basename={basename}
+          />
         </Paper>
         <Footer />
       </div>

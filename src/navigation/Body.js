@@ -5,12 +5,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "../pages/Home.js";
 import NoPage from "../pages/NoPage.js";
 
-function Body() {
+function Body(props) {
+  const basename = props.basename;
+
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <Routes>
-          <Route index element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
