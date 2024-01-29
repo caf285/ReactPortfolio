@@ -2,21 +2,28 @@
 import { useEffect } from "react";
 
 // mui
-import { AppBar, Button, Toolbar } from "@mui/material";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
+import { AppBar, Box, Button, IconButton, Toolbar, Typography } from "@mui/material";
+import { DarkMode as DarkModeIcon, LightMode as LightModeIcon } from "@mui/icons-material";
 
 function Header(props) {
-  const scrollY = props.scrollY
+  const scrollY = props.scrollY;
+  const themeMode = props.themeMode;
+  const handleThemeChange = props.handleThemeChange;
 
   return (
-      <AppBar sx={{ opacity: 0.9 }}>
-        <Toolbar>
-          <Button href="/" color="inherit">
-            <DarkModeIcon />
-            &nbsp;Home
-          </Button>
-        </Toolbar>
-      </AppBar>
+    <AppBar sx={{ opacity: 0.9 }}>
+      <Toolbar>
+        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+          TooLateForTacos
+        </Typography>
+        <Button href="/" color="inherit">
+          Home
+        </Button>
+        <IconButton onClick={handleThemeChange} color="inherit">
+          {themeMode === "light" ? <DarkModeIcon /> : <LightModeIcon />}
+        </IconButton>
+      </Toolbar>
+    </AppBar>
   );
 }
 
