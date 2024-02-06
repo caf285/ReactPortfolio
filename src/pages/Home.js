@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 // mui
-import { Chip, List, ListItem, ListItemText } from "@mui/material";
+import { Card, Chip, List, ListItem, ListItemText } from "@mui/material";
 
 export default function HomePage() {
 
@@ -14,13 +14,14 @@ export default function HomePage() {
   }, [showWarning])
 
   return (
-    <div style={{ margin: "auto", width: "50%" }}>
+    <div style={{margin: "auto", maxWidth: "800px", display: "flex", flexFlow: "column" }}>
       <Chip
         label = "Disclaimer: This site is intended as a practice and is very much a work in progress."
         color = "warning"
-        sx = {{ display: showWarning }}
+        sx = {{ display: showWarning, margin: "auto" }}
         onDelete = {() => {setShowWarning("none")}}
       />
+      <Card variant="outlined" sx={{ margin: 1, padding: 1 }}>
       <h3>
         Todo:
       </h3>
@@ -41,6 +42,7 @@ export default function HomePage() {
           <ListItemText primary="testing" />
         </ListItem>
       </List>
+      </Card>
     </div>
   )
 }

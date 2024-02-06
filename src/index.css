@@ -17,6 +17,13 @@ code {
     monospace;
 }
 
+/* screen  text scaler */
+@media (max-width: 600px) {
+  html {
+    font-size: 2.5vw;
+  }
+}
+
 /* root color scheme */
 :root {
   --clr-base: #777;

@@ -1,5 +1,5 @@
 // react
-import { useState, useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 // mui
 import { ThemeProvider } from "@mui/material/styles";
@@ -39,7 +39,7 @@ function App() {
       />
       <div style={{ display: "flex", flexFlow: "column", alignItems: "center", minHeight: "100vh" }} >
         <Toolbar />
-        <Paper elevation={10} square={false} sx={{ width: "90%", maxWidth: "1500px", flexGrow: 1, margin: 3, padding: 2 }}>
+        <Paper elevation={1} square={false} sx={{ width: "90%", maxWidth: "1500px", flexGrow: 1, margin: 3, padding: 2 }}>
           <Body
             basename={basename}
           />
