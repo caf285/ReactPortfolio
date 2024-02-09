@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { Button, IconButton, Tooltip } from "@mui/material";
 import { DarkMode as DarkModeIcon, LightMode as LightModeIcon } from "@mui/icons-material";
 
-// import context
+// context
 import { BasenameContext, ThemeChangeContext } from "../App.js";
 
 export function Home() {

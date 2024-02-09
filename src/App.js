@@ -36,7 +36,7 @@ export default function App() {
   return (
     <ThemeProvider theme={muiTheme[themeMode]}>
       <CssBaseline />
-      <BasenameContext.Provider value={{ basename }}>
+      <BasenameContext.Provider value={basename}>
         <ThemeChangeContext.Provider value={{ handleThemeChange, themeMode }}>
           <MainAppBar />
         </ThemeChangeContext.Provider>
