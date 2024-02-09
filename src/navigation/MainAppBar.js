@@ -2,18 +2,14 @@
 import { Fragment, useCallback, useEffect, useState } from "react";
 
 // mui
-import { AppBar, Button, Divider, Drawer, IconButton, Toolbar, Tooltip, Typography } from "@mui/material";
-import { DarkMode as DarkModeIcon, LightMode as LightModeIcon, MenuOpen as MenuOpenIcon } from "@mui/icons-material";
+import { AppBar, Drawer, IconButton, Toolbar, Tooltip, Typography } from "@mui/material";
+import { MenuOpen as MenuOpenIcon } from "@mui/icons-material";
 
 // app bar components
 import LargeAppBar from "./LargeAppBar.js";
 import SmallAppBar from "./SmallAppBar.js";
 
 export default function MainAppBar(props) {
-  // unload props
-  const themeMode = props.themeMode;
-  const handleThemeChange = props.handleThemeChange;
-
   // set initial window width
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
