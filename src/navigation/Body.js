@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "../pages/Home.js";
 import NoPage from "../pages/NoPage.js";
 
-function Body(props) {
+export default function Body(props) {
   const basename = props.basename;
 
   return (
@@ -18,6 +18,4 @@ function Body(props) {
       </BrowserRouter>
     </div>
   )
-}
-
-export default Body;
+};

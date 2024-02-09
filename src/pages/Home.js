@@ -2,12 +2,16 @@
 import { useState, useEffect } from "react";
 
 // mui
-import { Card, Chip, List, ListItem, ListItemText } from "@mui/material";
+import { Box, IconButton, Paper, Tooltip } from "@mui/material";
+import { Cancel as CancelIcon } from "@mui/icons-material";
+import { useTheme } from "@mui/material/styles";
 
 export default function HomePage() {
+  // mui theme
+  const theme = useTheme()
 
   // set warningMessage session data
-  const [showWarning, setShowWarning] = useState(sessionStorage.getItem("showWarning") ? sessionStorage.getItem("showWarning"): "");
+  const [showWarning, setShowWarning] = useState(sessionStorage.getItem("showWarning") ? sessionStorage.getItem("showWarning"): "flex");
 
   useEffect(() => {
     sessionStorage.setItem("showWarning", showWarning)
@@ -15,34 +19,16 @@ export default function HomePage() {
 
   return (
     <div style={{margin: "auto", maxWidth: "800px", display: "flex", flexFlow: "column" }}>
-      <Chip
-        label = "Disclaimer: This site is intended as a practice and is very much a work in progress."
-        color = "warning"
-        sx = {{ display: showWarning, margin: "auto" }}
-        onDelete = {() => {setShowWarning("none")}}
-      />
-      <Card variant="outlined" sx={{ margin: 1, padding: 1 }}>
-      <h3>
-        Todo:
-      </h3>
-      <List>
-        <ListItem>
-          <ListItemText primary="jazz up todo list" />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="replace warning container with something that can collapse to multiple lines" />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="begin navigational components for page content" />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="variable text size and/or new header component for smaller screens when necessary" />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="testing" />
-        </ListItem>
-      </List>
-      </Card>
+      <Paper sx={{ display: showWarning, flexFlow: "row", alignItems: "flex-start", margin: "auto", padding: "5px", backgroundColor: theme.palette.warning.main }}>
+        <Box style={{ flexGrow: 1 }}>
+          "Disclaimer: This site is intended as practice and is very much a work in progress. Click the 'x' to make me go away until the page is opened in another tab."
+        </Box>
+        <Tooltip title="close">
+          <IconButton onClick={() => setShowWarning("none")}>
+            <CancelIcon fontSize="small" />
+          </IconButton>
+        </Tooltip>
+      </Paper>
     </div>
   )
-}
+};

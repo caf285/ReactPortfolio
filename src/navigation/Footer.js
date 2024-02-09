@@ -1,7 +1,7 @@
 // mui
 import { AppBar, Box } from '@mui/material';
 
-function Footer() {
+export default function Footer() {
   return (
     <AppBar position="relative" sx={{ opacity: 0.9 }}>
       <Box sx={{ padding: 1, paddingRight: 2, display: "flex" }}>
@@ -10,6 +10,4 @@ function Footer() {
       </Box>
     </AppBar>
   )
-}
-
-export default Footer;
+};

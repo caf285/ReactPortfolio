@@ -5,9 +5,12 @@ import { Fragment, useCallback, useEffect, useState } from "react";
 import { AppBar, Button, Divider, Drawer, IconButton, Toolbar, Tooltip, Typography } from "@mui/material";
 import { DarkMode as DarkModeIcon, LightMode as LightModeIcon, MenuOpen as MenuOpenIcon } from "@mui/icons-material";
 
-function Header(props) {
+// app bar components
+import LargeAppBar from "./LargeAppBar.js";
+import SmallAppBar from "./SmallAppBar.js";
+
+export default function MainAppBar(props) {
   // unload props
-  const basename = props.basename;
   const themeMode = props.themeMode;
   const handleThemeChange = props.handleThemeChange;
 
@@ -38,23 +41,7 @@ function Header(props) {
         </Typography>
         {windowWidth && windowWidth >= 600 ? (
           /* if screen size larger than 600px */
-          <Fragment>
-            <Button href={`${basename}/`} color="inherit">
-              Home
-            </Button>
-            <Divider orientation="vertical" sx={{ margin: 2 }} flexItem />
-            <Tooltip title="https://github.com/caf285/ReactPortfolio">
-              <Button href="https://github.com/caf285/ReactPortfolio" color="inherit">
-                GitHub Repo
-              </Button>
-            </Tooltip>
-            <Divider orientation="vertical" sx={{ margin: 2 }} flexItem />
-            <Tooltip title="toggle theme">
-              <IconButton onClick={handleThemeChange} color="inherit">
-                {themeMode === "light" ? <DarkModeIcon /> : <LightModeIcon />}
-              </IconButton>
-            </Tooltip>
-          </Fragment>
+          <LargeAppBar />
         ) : (
           /* if screen size smaller than 600px */
           <Fragment>
@@ -64,27 +51,11 @@ function Header(props) {
               </IconButton>
             </Tooltip>
             <Drawer anchor="right" open={drawerOpen} onClose={handleDrawer(false)} onClick={handleDrawer(false)}>
-              <Button href={`${basename}/`} color="inherit">
-                Home
-              </Button>
-              <Tooltip placement="left" title="https://github.com/caf285/ReactPortfolio">
-                <Button href="https://github.com/caf285/ReactPortfolio" color="inherit">
-                  GitHub Repo
-                </Button>
-              </Tooltip>
-              <Tooltip placement="left" title="toggle theme">
-                <div style={{ marginLeft: "auto", marginRight: "auto" }}>
-                <IconButton onClick={handleThemeChange} color="inherit">
-                  {themeMode === "light" ? <DarkModeIcon /> : <LightModeIcon />}
-                </IconButton>
-                </div>
-              </Tooltip>
+              <SmallAppBar />
             </Drawer>
           </Fragment>
         )}
       </Toolbar>
     </AppBar>
   );
-}
-
-export default Header;
+};

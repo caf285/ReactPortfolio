@@ -1,8 +1,20 @@
 // mui
 import { createTheme } from "@mui/material/styles";
 
-// mui light palette
+// mui default theme
+const defaultTheme = createTheme({
+  components: {
+    MuiPaper: {
+      defaultProps: {
+        elevation: 4,
+      },
+    },
+  },
+});
+
+// mui light theme
 const lightTheme = createTheme({
+  ...defaultTheme,
   palette: {
     mode: "light",
     background: {
@@ -11,8 +23,9 @@ const lightTheme = createTheme({
   },
 })
 
-// mui dark palette
+// mui dark theme
 const darkTheme = createTheme({
+  ...defaultTheme,
   palette: {
     mode: "dark",
   }

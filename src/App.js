@@ -1,5 +1,5 @@
 // react
-import { useCallback, useEffect, useState } from "react";
+import { createContext, useCallback, useEffect, useState } from "react";
 
 // mui
 import { ThemeProvider } from "@mui/material/styles";
@@ -9,11 +9,15 @@ import { CssBaseline, Paper, Toolbar } from "@mui/material";
 import { muiTheme } from "./Theme.js";
 
 // navigation components
-import Header from './navigation/Header.js';
+import MainAppBar from './navigation/MainAppBar.js';
 import Body from './navigation/Body.js';
 import Footer from './navigation/Footer.js';
 
-function App() {
+// create context for basename and theme swap handler
+export const BasenameContext = createContext();
+export const ThemeChangeContext = createContext();
+
+export default function App() {
   // toggle theme
   const [themeMode, setThemeMode] = useState(localStorage.getItem("mode") ? localStorage.getItem("mode") : "dark")
 
@@ -26,28 +30,24 @@ function App() {
     setThemeMode(themeMode === "dark" ? "light" : "dark")
   }, [themeMode])
 
-  // set dynamic basename for links and routing
+  // set dynamic basename context
   const basename = window.location.hostname === "caf285.github.io" ? "/ReactPortfolio" : "";
 
   return (
     <ThemeProvider theme={muiTheme[themeMode]}>
       <CssBaseline />
-      <Header
-        basename={basename}
-        themeMode={themeMode}
-        handleThemeChange={handleThemeChange}
-      />
-      <div style={{ display: "flex", flexFlow: "column", alignItems: "center", minHeight: "100vh" }} >
-        <Toolbar />
-        <Paper elevation={1} square={false} sx={{ width: "90%", maxWidth: "1500px", flexGrow: 1, margin: 3, padding: 2 }}>
-          <Body
-            basename={basename}
-          />
-        </Paper>
-        <Footer />
-      </div>
+      <BasenameContext.Provider value={{ basename }}>
+        <ThemeChangeContext.Provider value={{ handleThemeChange, themeMode }}>
+          <MainAppBar />
+        </ThemeChangeContext.Provider>
+        <div style={{ display: "flex", flexFlow: "column", alignItems: "center", minHeight: "100vh" }} >
+          <Toolbar />
+          <Paper sx={{ width: "90%", maxWidth: "1500px", flexGrow: 1, margin: 3, padding: 2 }}>
+            <Body />
+          </Paper>
+          <Footer />
+        </div>
+      </BasenameContext.Provider>
     </ThemeProvider>
   )
-}
-
-export default App
+};
