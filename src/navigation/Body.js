@@ -12,10 +12,6 @@ import NoPage from "../pages/NoPage.js";
 export default function Body() {
   const basename = useContext(BasenameContext)
 
-  useEffect(() => {
-    console.log(basename)
-  })
-
   return (
     <div>
       <BrowserRouter basename={basename}>
