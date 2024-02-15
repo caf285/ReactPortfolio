@@ -1,52 +1,61 @@
 // react
-import { useState, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 
 // mui
-import { Box, Grid, IconButton, Paper, Tooltip } from "@mui/material";
-import { Cancel as CancelIcon } from "@mui/icons-material";
+import { Box, Grid, IconButton, Link, Paper, Tooltip, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+
+// context
+import { BasenameContext } from "../App.js";
 
 // card button components
 import CardButton from "../components/cardButton/CardButton.js";
 
 export default function HomePage() {
-  // mui theme
+  // theme & context
   const theme = useTheme()
-
-  // set warningMessage session data
-  const [showWarning, setShowWarning] = useState(sessionStorage.getItem("showWarning") ? sessionStorage.getItem("showWarning"): "flex");
-
-  useEffect(() => {
-    sessionStorage.setItem("showWarning", showWarning)
-  }, [showWarning])
+  const basename = useContext(BasenameContext);
 
   return (
-    <div style={{margin: "auto", maxWidth: "1200px", display: "flex", flexFlow: "column" }}>
-
-      {/* front page disclaimer */}
-      <Paper sx={{ display: showWarning, flexFlow: "row", alignItems: "flex-start", margin: "auto", marginBottom: "25px", padding: "5px", backgroundColor: theme.palette.warning.main }}>
-        <Box style={{ flexGrow: 1 }}>
-          "Disclaimer: This site is intended as practice and is very much a work in progress. Click the 'x' to make me go away until the page is opened in another tab."
-        </Box>
-        <Tooltip title="close">
-          <IconButton onClick={() => setShowWarning("none")}>
-            <CancelIcon fontSize="small" />
-          </IconButton>
-        </Tooltip>
-      </Paper>
+    <Box>
+      <Typography variant="body1" sx={{ margin: "5px", marginBottom: "15px" }}>
+        Welcome to my humble React Portfolio. This site is intended as practice and is very much a work in progress. At the moment it is just a light React wrapper for fitting Material UI components together like legos, but it is very much a hobby and will one day be much more. Please click <Link underline="always" color={theme.palette.info.main} href="https://github.com/caf285/ReactPortfolio">here</Link> for my github repo for this project to see the core code.
+      </Typography>
+      <Typography variant="body1" sx={{ margin: "5px", marginBottom: "15px" }}>
+          I am still trying to think of cool stuff to fill this space with, which is slowly starting to become a place to put my favorite things. If you would like to see some of my favorite things, please feel free to poke around.
+      </Typography>
 
       {/* menu grid */}
-      <Grid container spacing={5}>
+      <Grid container spacing={5} sx={{padding: "15px"}}>
         <Grid item xs={12} sm={6} md={4}>
           <Box sx={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <CardButton
-              image={"/assets/images/books.jpg"}
+              image={`${basename}/assets/images/books.jpg`}
               alt={"books"}
               title={"My Favorite Books"}
+              href={`${basename}/books`}
             />
           </Box>
         </Grid>
+        {/*<Grid item xs={12} sm={6} md={4}>
+          <Box sx={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <CardButton
+              image={`${basename}/assets/images/games.jpg`}
+              alt={"games"}
+              title={"My Favorite Games"}
+            />
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Box sx={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <CardButton
+              image={`${basename}/assets/images/things.jpg`}
+              alt={"things"}
+              title={"My Favorite Things"}
+            />
+          </Box>
+        </Grid>*/}
       </Grid>
-    </div>
+    </Box>
   )
 };

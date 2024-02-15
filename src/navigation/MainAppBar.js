@@ -32,7 +32,7 @@ export default function MainAppBar(props) {
   return (
     <AppBar sx={{ opacity: 0.9 }}>
       <Toolbar>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+        <Typography variant="overline" sx={{ fontSize: "1rem", flexGrow: 1 }}>
           React Portfolio Project
         </Typography>
         {windowWidth && windowWidth >= 600 ? (

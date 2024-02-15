@@ -42,7 +42,7 @@ export default function App() {
         </ThemeChangeContext.Provider>
         <div style={{ display: "flex", flexFlow: "column", alignItems: "center", minHeight: "100vh" }} >
           <Toolbar />
-          <Paper sx={{ width: "90%", maxWidth: "1500px", flexGrow: 1, margin: 3, padding: 2 }}>
+          <Paper sx={{ width: "90%", maxWidth: "1200px", flexGrow: 1, margin: 3, padding: 3 }}>
             <Body />
           </Paper>
           <Footer />

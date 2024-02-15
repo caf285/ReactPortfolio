@@ -7,6 +7,10 @@ import { BasenameContext } from "../App.js";
 
 // page components
 import HomePage from "../pages/Home.js";
+import BooksPage from "../pages/Books.js";
+import TypographyPage from "../pages/Typography.js";
+
+// 404
 import NoPage from "../pages/NoPage.js";
 
 export default function Body() {
@@ -16,8 +20,10 @@ export default function Body() {
     <div>
       <BrowserRouter basename={basename}>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="*" element={<NoPage />} />
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/books" element={<BooksPage />} />
+          <Route exact path="/typography" element={<TypographyPage />} />
+          <Route element={<NoPage />} />
         </Routes>
       </BrowserRouter>
     </div>

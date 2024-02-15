@@ -12,6 +12,8 @@ export default function LargeAppBar() {
       <Links.GithubRepo />
       <Divider orientation="vertical" sx={{ margin: 2 }} flexItem />
       <Links.ThemeToggle />
+      <Divider orientation="vertical" sx={{ margin: 2 }} flexItem />
+      <Links.DemoMenu />
     </>
   );
 };

@@ -1,8 +1,8 @@
 // react
-import { useContext } from "react";
+import { useContext, useCallback, useRef, useState } from "react";
 
 // mui
-import { Button, IconButton, Tooltip } from "@mui/material";
+import { Button, IconButton, Link, Menu, MenuItem, Tooltip } from "@mui/material";
 import { DarkMode as DarkModeIcon, LightMode as LightModeIcon } from "@mui/icons-material";
 
 // context
@@ -20,11 +20,8 @@ export function Home() {
 };
 
 export function GithubRepo(props) {
-  // unload props
-  const placement = props.placement
-
   return (
-    <Tooltip placement={placement} title="https://github.com/caf285/ReactPortfolio">
+    <Tooltip placement={props.placement} title="https://github.com/caf285/ReactPortfolio">
       <Button href="https://github.com/caf285/ReactPortfolio" color="inherit">
         GitHub Repo
       </Button>
@@ -33,17 +30,55 @@ export function GithubRepo(props) {
 };
 
 export function ThemeToggle(props) {
-  // unload props
-  const placement = props.placement
-
   // get handleThemeChange context
   const { handleThemeChange, themeMode } = useContext(ThemeChangeContext)
 
   return (
-    <Tooltip placement={placement} title="toggle theme">
+    <Tooltip placement={props.placement} title="toggle theme">
       <IconButton onClick={handleThemeChange} color="inherit">
         {themeMode === "light" ? <LightModeIcon /> : <DarkModeIcon />}
       </IconButton>
     </Tooltip>
+  );
+};
+
+/* Demo Menu Items */
+export function DemoTypography(props) {
+  // get basename context
+  const basename = useContext(BasenameContext);
+
+  return (
+    <Link href={`${basename}/typography`}>
+      <MenuItem onClick={props.onClick}>Typography</MenuItem>
+    </Link>
+  )
+}
+
+export function DemoMenu() {
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  return (
+    <>
+      <Button disableRipple={false} onClick={handleClick}>
+        Demo
+      </Button>
+      <Menu
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <DemoTypography
+          onClick={handleClose}
+        />
+      </Menu>
+    </>
   );
 };

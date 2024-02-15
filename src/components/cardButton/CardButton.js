@@ -9,6 +9,7 @@ export default function CardButton(props) {
   const image = props.image
   const alt = props.alt
   const title = props.title
+  const href = props.href
 
   // handle hovered
   const [isHovered, setIsHovered] = useState(false);
@@ -18,14 +19,14 @@ export default function CardButton(props) {
       <CardActionArea
         onMouseEnter={() => {setIsHovered(true)}}
         onMouseLeave={() => {setIsHovered(false)}}
-        onClick={() => {console.log({alt})}}
+        onClick={() => {window.location.href = href}}
       >
         <Box sx={{ overflow: "hidden" }}>
         <CardMedia
           component="img"
           image={image}
           alt={alt}
-          sx={{ transition: "transform 0.15s", transformOrigin: "left", transform: isHovered ? "scale(1.1)" : "scale(1)" }}
+          sx={{ transition: "transform 0.15s", transform: isHovered ? "scale(1.1)" : "scale(1)" }}
         />
         </Box>
         <CardContent>
