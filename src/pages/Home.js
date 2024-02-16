@@ -33,25 +33,37 @@ export default function HomePage() {
               image={`${basename}/assets/images/books.jpg`}
               alt={"books"}
               title={"My Favorite Books"}
-              href={`${basename}/#/books`}
-            />
-          </Box>
-        </Grid>
-        {/*<Grid item xs={12} sm={6} md={4}>
-          <Box sx={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <CardButton
-              image={`${basename}/assets/images/games.jpg`}
-              alt={"games"}
-              title={"My Favorite Games"}
+              href={`${basename}/#/favorite-books`}
             />
           </Box>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <Box sx={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <CardButton
+              image={`${basename}/assets/images/games.jpg`}
+              alt={"games"}
+              title={"My Favorite Games"}
+              href={`${basename}/#/favorite-games`}
+            />
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Box sx={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <CardButton
+              image={`${basename}/assets/images/movies.jpg`}
+              alt={"movies"}
+              title={"My Favorite Movies"}
+              href={`${basename}/#/favorite-movies`}
+            />
+          </Box>
+        </Grid>
+        {/*<Grid item xs={12} sm={6} md={4}>
+          <Box sx={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <CardButton
               image={`${basename}/assets/images/things.jpg`}
               alt={"things"}
               title={"My Favorite Things"}
+              href={`${basename}/#/favorite-things`}
             />
           </Box>
         </Grid>*/}

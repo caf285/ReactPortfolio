@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 // mui
 import { Box, Card, CardActionArea, CardContent, CardMedia, Tooltip } from "@mui/material"
+import { ArrowCircleRightOutlined as ArrowIcon } from "@mui/icons-material";
 
 export default function CardButton(props) {
   // unload props
@@ -21,17 +22,34 @@ export default function CardButton(props) {
         onMouseLeave={() => {setIsHovered(false)}}
         onClick={() => {window.location.href = href}}
       >
-        <Box sx={{ overflow: "hidden" }}>
-        <CardMedia
-          component="img"
-          image={image}
-          alt={alt}
-          sx={{
-            transition: "transform 0.25s, filter 0.25s", 
-            transform: isHovered ? "scale(1.05)" : "scale(1)",
-            filter: isHovered ? "blur(0px)" : "blur(2px)"
-          }}
-        />
+        <Box sx={{ overflow: "hidden", position: "relative" }}>
+          <Box sx={{
+            position: "absolute",
+            zIndex: 1,
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            justifyContent: "center", /* horizonatal center */
+            alignItems: "center" /* vertical center */
+          }}>
+            <ArrowIcon sx={{
+              width: "20%", 
+              height: "100%",
+              transition: "color 0.25s, filter 0.25s",
+              color: isHovered ? "rgba(255, 255, 255, 0)" : "rgba(255, 255, 255, 0.75)",
+              filter: isHovered ? "drop-shadow(3px 3px 3px rgba(0, 0, 0, 0))" : "drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.5))",
+            }} />
+          </Box>
+          <CardMedia
+            component="img"
+            image={image}
+            alt={alt}
+            sx={{
+              transition: "transform 0.25s, filter 0.25s", 
+              transform: isHovered ? "scale(1.10)" : "scale(1.05)",
+              filter: isHovered ? "brightness(0.9) blur(0px)" : "brightness(0.75) blur(3px)"
+            }}
+          />
         </Box>
         <CardContent>
           {title}

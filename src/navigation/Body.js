@@ -7,7 +7,10 @@ import { BasenameContext } from "../App.js";
 
 // page components
 import HomePage from "../pages/Home.js";
-import BooksPage from "../pages/Books.js";
+import FavoriteBooksPage from "../pages/FavoriteBooks.js";
+import FavoriteGamesPage from "../pages/FavoriteGames.js";
+import FavoriteMoviesPage from "../pages/FavoriteMovies.js";
+import FavoriteThingsPage from "../pages/FavoriteThings.js";
 import TypographyPage from "../pages/Typography.js";
 
 // 404
@@ -21,7 +24,10 @@ export default function Body() {
       <Router>
         <Routes basename={basename}>
           <Route exact path="/" element={<HomePage />} />
-          <Route exact path="/books" element={<BooksPage />} />
+          <Route exact path="/favorite-books" element={<FavoriteBooksPage />} />
+          <Route exact path="/favorite-games" element={<FavoriteGamesPage />} />
+          <Route exact path="/favorite-movies" element={<FavoriteMoviesPage />} />
+          <Route exact path="/favorite-things" element={<FavoriteThingsPage />} />
           <Route exact path="/typography" element={<TypographyPage />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
