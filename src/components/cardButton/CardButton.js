@@ -26,7 +26,11 @@ export default function CardButton(props) {
           component="img"
           image={image}
           alt={alt}
-          sx={{ transition: "transform 0.15s", transform: isHovered ? "scale(1.1)" : "scale(1)" }}
+          sx={{
+            transition: "transform 0.25s, filter 0.25s", 
+            transform: isHovered ? "scale(1.05)" : "scale(1)",
+            filter: isHovered ? "blur(0px)" : "blur(2px)"
+          }}
         />
         </Box>
         <CardContent>

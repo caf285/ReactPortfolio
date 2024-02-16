@@ -33,7 +33,7 @@ export default function HomePage() {
               image={`${basename}/assets/images/books.jpg`}
               alt={"books"}
               title={"My Favorite Books"}
-              href={`${basename}/books`}
+              href={`${basename}/#/books`}
             />
           </Box>
         </Grid>

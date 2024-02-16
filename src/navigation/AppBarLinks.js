@@ -48,7 +48,7 @@ export function DemoTypography(props) {
   const basename = useContext(BasenameContext);
 
   return (
-    <Link href={`${basename}/typography`}>
+    <Link href={`${basename}/#/typography`}>
       <MenuItem onClick={props.onClick}>Typography</MenuItem>
     </Link>
   )

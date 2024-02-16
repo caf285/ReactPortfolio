@@ -1,6 +1,6 @@
 // react
 import { useContext, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 // context
 import { BasenameContext } from "../App.js";
@@ -18,14 +18,14 @@ export default function Body() {
 
   return (
     <div>
-      <BrowserRouter basename={basename}>
-        <Routes>
+      <Router>
+        <Routes basename={basename}>
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/books" element={<BooksPage />} />
           <Route exact path="/typography" element={<TypographyPage />} />
-          <Route element={<NoPage />} />
+          <Route path="*" element={<NoPage />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </div>
   )
 };

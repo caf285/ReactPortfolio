@@ -32,6 +32,7 @@ export default function App() {
 
   // set dynamic basename context
   const basename = window.location.hostname === "caf285.github.io" ? "/ReactPortfolio" : "";
+  console.log(basename)
 
   return (
     <ThemeProvider theme={muiTheme[themeMode]}>
