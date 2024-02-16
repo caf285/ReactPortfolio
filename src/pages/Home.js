@@ -13,7 +13,7 @@ import CardButton from "../components/cardButton/CardButton.js";
 
 export default function HomePage() {
   // theme & context
-  const theme = useTheme()
+  const theme = useTheme();
   const basename = useContext(BasenameContext);
 
   return (

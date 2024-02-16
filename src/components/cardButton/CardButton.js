@@ -2,26 +2,39 @@
 import { useEffect, useState } from "react";
 
 // mui
-import { Box, Card, CardActionArea, CardContent, CardMedia, Tooltip } from "@mui/material"
+import { Box, Card, CardActionArea, CardContent, CardMedia, Tooltip } from "@mui/material";
 import { ArrowCircleRightOutlined as ArrowIcon } from "@mui/icons-material";
+import { useTheme } from "@mui/material/styles";
 
 export default function CardButton(props) {
   // unload props
-  const image = props.image
-  const alt = props.alt
-  const title = props.title
-  const href = props.href
+  const image = props.image;
+  const alt = props.alt;
+  const title = props.title;
+  const href = props.href;
+
+  // load default theme
+  const theme = useTheme();
+  console.log(theme)
 
   // handle hovered
   const [isHovered, setIsHovered] = useState(false);
+  const [isTouched, setIsTouched] = useState(false);
 
   return (
-    <Card sx={{ width: "80%" }}>
+    <Card sx={{
+      width: "80%",
+    }}>
       <CardActionArea
         onMouseEnter={() => {setIsHovered(true)}}
         onMouseLeave={() => {setIsHovered(false)}}
+        onTouchStart={() => {setIsHovered(true); setIsTouched(true)}}
+        onTouchEnd={() => {setIsHovered(false); setIsTouched(false)}}
         onClick={() => {window.location.href = href}}
-      >
+        sx={{
+          transition: "background-color 0.25s",
+          backgroundColor: isTouched ? "rgba(124, 124, 124, 0.1)" : "rgba(124, 124, 124, 0)"
+        }}>
         <Box sx={{ overflow: "hidden", position: "relative" }}>
           <Box sx={{
             position: "absolute",
