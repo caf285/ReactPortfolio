@@ -15,7 +15,6 @@ export default function CardButton(props) {
 
   // load default theme
   const theme = useTheme();
-  console.log(theme)
 
   // handle hovered
   const [isHovered, setIsHovered] = useState(false);

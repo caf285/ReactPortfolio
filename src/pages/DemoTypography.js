@@ -1,7 +1,7 @@
 // mui
 import { Box, Typography } from "@mui/material";
 
-export default function TypographyPage() {
+export default function DemoTypographyPage() {
   return (
     <Box>
       <Typography variant="h1">h1 variant</Typography>

@@ -4,6 +4,7 @@ import { useContext, useCallback, useRef, useState } from "react";
 // mui
 import { Button, IconButton, Link, Menu, MenuItem, Tooltip } from "@mui/material";
 import { DarkMode as DarkModeIcon, LightMode as LightModeIcon } from "@mui/icons-material";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 // context
 import { BasenameContext, ThemeChangeContext } from "../App.js";
@@ -42,43 +43,34 @@ export function ThemeToggle(props) {
   );
 };
 
-/* Demo Menu Items */
-export function DemoTypography(props) {
+/* drop down links */
+function DropDownItem(props) {
   // get basename context
   const basename = useContext(BasenameContext);
+  const label = props.label;
+  const link = props.link;
 
   return (
-    <Link href={`${basename}/#/typography`}>
-      <MenuItem onClick={props.onClick}>Typography</MenuItem>
+    <Link href={`${basename}/${link}`}>
+      <MenuItem>{label}</MenuItem>
     </Link>
   )
 }
 
-export function DemoMenu() {
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+export function DemoCluster(props) {
+  // unpack props
+  const onClick = props.onClick;
 
   return (
-    <>
-      <Button disableRipple={false} onClick={handleClick}>
-        Demo
-      </Button>
-      <Menu
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <DemoTypography
-          onClick={handleClose}
-        />
-      </Menu>
-    </>
+    <span onClick={onClick}>
+      <DropDownItem
+        label={"Typography"}
+        link={"#/demo-typography"}
+      />
+      <DropDownItem
+        label={"Plotly"}
+        link={"#/demo-plotly"}
+      />
+    </span>
   );
-};
+}

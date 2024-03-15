@@ -2,7 +2,7 @@
 import { Divider } from "@mui/material";
 
 // link components
-import * as Links from "./AppBarLinks.js";
+import * as Links from "./Links.js";
 
 export default function SmallAppBar() {
   return (
@@ -17,7 +17,7 @@ export default function SmallAppBar() {
         />
       </div>
       <Divider />
-      <Links.DemoTypography />
+      <Links.DemoCluster />
     </>
   );
 };
