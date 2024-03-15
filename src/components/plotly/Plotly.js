@@ -1,9 +1,6 @@
 // react
 import { useState, useEffect, useRef } from "react";
 
-// mui
-import { Box } from "@mui/material";
-
 // plotly
 import PlotlyDist from "plotly.js-dist";
 
@@ -31,7 +28,7 @@ export default function Plotly(props) {
 
   useEffect(() => {
     setData(data.map(({ x, y }) => ({x, y, type: type})));
-  }, [type]);
+  }, [data, type]);
 
   const handleResize = () => {
     setLayout({
@@ -52,7 +49,7 @@ export default function Plotly(props) {
     return () => {
       window.removeEventListener("resize", handleResize);
     }
-  }, []);
+  }, []); // eslint-disable-line
 
   return (
     <div ref={plotlyRef} />

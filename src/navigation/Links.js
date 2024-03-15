@@ -1,10 +1,9 @@
 // react
-import { useContext, useCallback, useRef, useState } from "react";
+import { useContext } from "react";
 
 // mui
-import { Button, IconButton, Link, Menu, MenuItem, Tooltip } from "@mui/material";
+import { Button, IconButton, Link, MenuItem, Tooltip } from "@mui/material";
 import { DarkMode as DarkModeIcon, LightMode as LightModeIcon } from "@mui/icons-material";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 // context
 import { BasenameContext, ThemeChangeContext } from "../App.js";

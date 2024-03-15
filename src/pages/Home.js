@@ -1,8 +1,8 @@
 // react
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 
 // mui
-import { Box, Grid, IconButton, Link, Paper, Tooltip, Typography } from "@mui/material";
+import { Box, Grid, Link, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 // context

@@ -1,20 +1,14 @@
 // react
-import { useEffect, useState } from "react";
+//import { useEffect, useState } from "react";
 
 // mui
-import { Box, Card, CardActionArea, CardContent, CardMedia, Tooltip } from "@mui/material";
-import { ArrowCircleRightOutlined as ArrowIcon } from "@mui/icons-material";
-import { useTheme } from "@mui/material/styles";
+import { Box, Card, CardContent, CardMedia } from "@mui/material";
 
 export default function ReviewCard(props) {
   // unload props
   const image = props.image;
   const alt = props.alt;
   const title = props.title;
-  const href = props.href;
-
-  // load default theme
-  const theme = useTheme();
 
   return (
     <Card sx={{

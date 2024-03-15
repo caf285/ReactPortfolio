@@ -1,5 +1,5 @@
 // react
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 // context

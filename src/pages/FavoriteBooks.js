@@ -3,7 +3,6 @@ import { useContext } from "react";
 
 //mui
 import { Box, Grid } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 
 // context
 import { BasenameContext } from "../App.js";
@@ -12,8 +11,7 @@ import { BasenameContext } from "../App.js";
 import ReviewCard from "../components/reviewCard/ReviewCard.js";
 
 export default function FavoriteBooksPage() {
-  // theme & context
-  const theme = useTheme();
+  // context
   const basename = useContext(BasenameContext);
 
   return (

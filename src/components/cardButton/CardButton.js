@@ -1,10 +1,9 @@
 // react
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // mui
-import { Box, Card, CardActionArea, CardContent, CardMedia, Tooltip } from "@mui/material";
+import { Box, Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
 import { ArrowCircleRightOutlined as ArrowIcon } from "@mui/icons-material";
-import { useTheme } from "@mui/material/styles";
 
 export default function CardButton(props) {
   // unload props
@@ -12,9 +11,6 @@ export default function CardButton(props) {
   const alt = props.alt;
   const title = props.title;
   const href = props.href;
-
-  // load default theme
-  const theme = useTheme();
 
   // handle hovered
   const [isHovered, setIsHovered] = useState(false);
