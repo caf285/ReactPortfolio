@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_portfolio_project=self.webpackChunkreact_portfolio_project||[]).push([[712],{712:(t,r,e)=>{e.r(r),e.d(r,{default:()=>n});var o=e(2496);function n(){return(0,o.jsx)("div",{children:"Vagrant Story. But will expand on this soon. :)"})}}}]);
+//# sourceMappingURL=712.383485fd.chunk.js.map

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_portfolio_project=self.webpackChunkreact_portfolio_project||[]).push([[660],{6660:(e,t,r)=>{r.r(t),r.d(t,{default:()=>i});var o=r(2496);function i(){return(0,o.jsx)("div",{children:"Contact ... But I have more. Imma dress this page up to look much better with MUI Card style movie review thingies."})}}}]);
+//# sourceMappingURL=660.664c9bbe.chunk.js.map
