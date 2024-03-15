@@ -70,6 +70,10 @@ export function DemoCluster(props) {
         label={"Plotly"}
         link={"#/demo-plotly"}
       />
+      <DropDownItem
+        label={"Leaflet"}
+        link={"#/demo-leaflet"}
+      />
     </span>
   );
 }

@@ -19,7 +19,7 @@ export default function MainAppBar(props) {
       setWindowWidth(window.innerWidth)
     });
     window.addEventListener('scroll', () => {
-      console.log(window.scrollY)
+      //console.log(window.scrollY)
     });
   }, [])
 

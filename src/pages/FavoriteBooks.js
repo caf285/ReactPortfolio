@@ -16,7 +16,7 @@ export default function FavoriteBooksPage() {
 
   return (
     <Box>
-      soon ... I really just need to take pictures and finish my core navigation component. Hi, how are you? :D
+      Soon ... I am invisioning an MUI card component similar to the front page navigation components where a review of each book I have read pops out on mouse over. Forgive the temporary reused book image. Hi, how are you? :D
       <Grid container sapcing={5} sx={{ padding: "15px" }}>
         <Grid item xs={12} sm={6}>
           <ReviewCard

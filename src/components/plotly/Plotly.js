@@ -2,11 +2,11 @@
 import { useState, useEffect, useRef } from "react";
 
 // plotly
-import PlotlyDist from "plotly.js-dist";
+import P from "plotly.js-dist";
 
 export default function Plotly(props) {
   // unpack props
-  const propsData = props.data;
+  const propsData = props.data ? props.data : {};
   const height = props.height;
   const maxHeight = props.maxHeight;
   const width = props.width;
@@ -14,6 +14,7 @@ export default function Plotly(props) {
   const title = props.title;
   const type = props.type;
 
+  // plotly variables
   const plotlyRef = useRef(null);
   const [data, setData] = useState(propsData)
   const [layout, setLayout] = useState({
@@ -22,14 +23,20 @@ export default function Plotly(props) {
     title: title,
   });
 
+  // refresh plotly on data or layout change (layout width || height)
   useEffect(() => {
-    PlotlyDist.react(plotlyRef.current, data, layout);
+    P.react(plotlyRef.current, data, layout);
   }, [data, layout]);
 
+  // inject type into data if type props used
+  // !!! disabled eslint, because data used to set itself !!!
   useEffect(() => {
-    setData(data.map(({ x, y }) => ({x, y, type: type})));
-  }, [data, type]);
+    if (type) {
+      setData(data.map(({ x, y }) => ({x, y, type: type})));
+    }
+  }, [type]); // eslint-disable-line
 
+  // resize handler on window.resize
   const handleResize = () => {
     setLayout({
       ...layout,
@@ -38,9 +45,11 @@ export default function Plotly(props) {
     });
   };
 
+  // initialize plotly and resize events
+  // !!! disabled eslint, because only initial data state needed to initialize plotly !!!
   useEffect(() => {
-    // set plotly
-    PlotlyDist.newPlot(plotlyRef.current, data, layout);
+    // initialize plotly
+    P.newPlot(plotlyRef.current, data, layout);
 
     // set size handler
     window.addEventListener("resize", handleResize);
@@ -48,10 +57,10 @@ export default function Plotly(props) {
     // clean event handlers
     return () => {
       window.removeEventListener("resize", handleResize);
-    }
+    };
   }, []); // eslint-disable-line
 
   return (
-    <div ref={plotlyRef} />
+    <div ref={plotlyRef} style={{ margin: "3px" }} />
   );
 };

@@ -17,6 +17,7 @@ export default function DemoPlotlyPage() {
 
   return (
     <Box>
+      <p>Plotly React component supports multiple independent instances at the same time.</p>
       <Plotly
         data={data}
         title={"Bar Graph"}
