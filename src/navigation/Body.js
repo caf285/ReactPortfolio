@@ -17,6 +17,7 @@ const FavoriteThingsPage = lazy(() => import("../pages/FavoriteThings.js"));
 const DemoTypographyPage = lazy(() => import("../pages/DemoTypography.js"));
 const DemoPlotlyPage = lazy(() => import("../pages/DemoPlotly.js"));
 const DemoLeafletPage = lazy(() => import("../pages/DemoLeaflet.js"));
+const DemoApiPage = lazy(() => import("../pages/DemoApi.js"));
 
 // 404
 const NoPage = lazy(() => import( "../pages/NoPage.js"));
@@ -45,6 +46,7 @@ export default function Body() {
           <Route exact path="/demo-typography" element={<DemoTypographyPage />} />
           <Route exact path="/demo-plotly" element={<DemoPlotlyPage />} />
           <Route exact path="/demo-leaflet" element={<DemoLeafletPage />} />
+          <Route exact path="/demo-api" element={<DemoApiPage />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
         </Suspense>

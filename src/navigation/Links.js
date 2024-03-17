@@ -74,6 +74,10 @@ export function DemoCluster(props) {
         label={"Leaflet"}
         link={"#/demo-leaflet"}
       />
+      <DropDownItem
+        label={"Api"}
+        link={"#/demo-api"}
+      />
     </span>
   );
 }
