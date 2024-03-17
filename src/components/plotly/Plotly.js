@@ -6,7 +6,7 @@ import P from "plotly.js-dist";
 
 export default function Plotly(props) {
   // unpack props
-  const propsData = props.data ? props.data : {};
+  const propsData = props.data ? props.data : [];
   const height = props.height;
   const maxHeight = props.maxHeight;
   const width = props.width;

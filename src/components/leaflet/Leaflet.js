@@ -7,8 +7,8 @@ import "leaflet/dist/leaflet.css";
 
 export default function Leaflet(props) {
   // unpack props
-  const lat = props.lat ? props.lat : 0;
-  const lon = props.lon ? props.lon : 0;
+  const lat = props.lat ? props.lat : 51.505;
+  const lon = props.lon ? props.lon : -0.09;
   const zoom = props.zoom ? props.zoom : 10;
 
   // leaflet variables

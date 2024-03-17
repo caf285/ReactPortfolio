@@ -13,14 +13,23 @@ export default function MainAppBar(props) {
   // set initial window width
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
+  const resizeHandler = () => {
+    setWindowWidth(window.innerWidth)
+  };
+
+  const scrollHandler = () => {
+    //console.log(window.scrollY)
+  };
+
   // add event listeners on load
   useEffect(() => {
-    window.addEventListener("resize", () => {
-      setWindowWidth(window.innerWidth)
-    });
-    window.addEventListener('scroll', () => {
-      //console.log(window.scrollY)
-    });
+    window.addEventListener("resize", resizeHandler);
+    window.addEventListener('scroll', scrollHandler);
+
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+      window.removeEventListener('scroll', scrollHandler);
+    };
   }, [])
 
   // handle drawer state
