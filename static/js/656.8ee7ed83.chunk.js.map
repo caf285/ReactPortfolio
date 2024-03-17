@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/656.8ee7ed83.chunk.js","mappings":"6KAAe,SAASA,IACtB,OACEC,EAAAA,EAAAA,KAAA,OAAAC,SAAK,OAIT,C","sources":["pages/NoPage.js"],"sourcesContent":["export default function NoPage() {\n  return (\n    <div>\n      404\n    </div>\n  )\n};\n"],"names":["NoPage","_jsx","children"],"sourceRoot":""}

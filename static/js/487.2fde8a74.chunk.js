@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_portfolio_project=self.webpackChunkreact_portfolio_project||[]).push([[487],{4487:(e,r,a)=>{a.r(r),a.d(r,{default:()=>t});var o=a(2496);function t(){return(0,o.jsx)("div",{children:"Maybe computers, shoes, hiking, and family and friends? Imma make this page look nice."})}}}]);
-//# sourceMappingURL=487.2fde8a74.chunk.js.map
