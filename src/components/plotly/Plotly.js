@@ -6,35 +6,27 @@ import P from "plotly.js-dist";
 
 export default function Plotly(props) {
   // unpack props
-  const propsData = props.data ? props.data : [];
+  const data = props.data;
   const height = props.height;
   const maxHeight = props.maxHeight;
   const width = props.width;
   const maxWidth = props.maxWidth;
   const title = props.title;
-  const type = props.type;
 
   // plotly variables
   const plotlyRef = useRef(null);
-  const [data, setData] = useState(propsData)
   const [layout, setLayout] = useState({
     height: maxHeight ? Math.min(maxHeight, height): height,
     width: maxWidth ? Math.min(maxWidth, width) : width,
     title: title,
+    plot_bgcolor: "rgba(0, 0, 0, 0)",
+    paper_bgcolor: "rgba(0, 0, 0, 0)",
   });
 
   // refresh plotly on data or layout change (layout width || height)
   useEffect(() => {
-    P.react(plotlyRef.current, data, layout);
+    P.react(plotlyRef.current, [data], layout);
   }, [data, layout]);
-
-  // inject type into data if type props used
-  // !!! disabled eslint, because data used to set itself !!!
-  useEffect(() => {
-    if (type) {
-      setData(data.map(({ x, y }) => ({x, y, type: type})));
-    }
-  }, [type]); // eslint-disable-line
 
   // resize handler on window.resize
   const handleResize = () => {
@@ -49,7 +41,7 @@ export default function Plotly(props) {
   // !!! disabled eslint, because only initial data state needed to initialize plotly !!!
   useEffect(() => {
     // initialize plotly
-    P.newPlot(plotlyRef.current, data, layout);
+    P.newPlot(plotlyRef.current, [data], layout);
 
     // set size handler
     window.addEventListener("resize", handleResize);

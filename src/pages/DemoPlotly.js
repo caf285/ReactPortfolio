@@ -9,10 +9,11 @@ import Plotly from "../components/plotly/Plotly.js";
 
 export default function DemoPlotlyPage() {
   const [data, setData] = useState(
-    [{
+    {
 	    x: [1, 2, 3, 4, 5],
-	    y: [1, 2, 4, 8, 16]
-    }]
+	    y: [1, 2, 4, 8, 16],
+      type: "bar"
+    }
   );
 
   return (
@@ -21,12 +22,6 @@ export default function DemoPlotlyPage() {
       <Plotly
         data={data}
         title={"Bar Graph"}
-        type={"bar"}
-      />
-      <Plotly
-        data={data}
-        title={"Scatter Graph"}
-        type={"scatter"}
       />
     </Box>
   )
